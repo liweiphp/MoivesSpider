@@ -84,36 +84,36 @@ def insertData():
     # db = sqlite3.connect('./' + DBName, 10)
     conn = db.cursor()
 
-    tableName = 'lastest_moive'
+    tableName = 'lastest_movie'
     CreateTableSql = '''
-        Create Table lastest_moive (
-            'm_id' unsigned int auto_increment PRIMARY KEY,
-            'm_type' varchar(100),
-            'm_trans_name' varchar(200),
-            'm_name' varchar(100),
-            'm_decade' varchar(30),
-            'm_conutry' varchar(30),
-            'm_level' varchar(100),
-            'm_language' varchar(30),
-            'm_subtitles' varchar(100),
-            'm_publish' varchar(30),
-            'm_IMDB_socre' varchar(50),
-            'm_douban_score' varchar(50),
-            'm_format' varchar(20),
-            'm_resolution' varchar(20),
-            'm_size' varchar(10),
-            'm_duration' varchar(10),
-            'm_director' varchar(50),
-            'm_actors' varchar(1000),
-            'm_placard' varchar(200),
-            'm_screenshot' varchar(200),
-            'm_ftpurl' varchar(200),
-            'm_dytt8_url' varchar(200)
+        Create Table lastest_movie (
+            `m_id` int unsigned auto_increment PRIMARY KEY,
+            `m_type` varchar(100),
+            `m_trans_name` varchar(200),
+            `m_name` varchar(100),
+            `m_decade` varchar(30),
+            `m_conutry` varchar(30),
+            `m_level` varchar(100),
+            `m_language` varchar(30),
+            `m_subtitles` varchar(100),
+            `m_publish` varchar(30),
+            `m_IMDB_socre` varchar(50),
+            `m_douban_score` varchar(50),
+            `m_format` varchar(20),
+            `m_resolution` varchar(20),
+            `m_size` varchar(10),
+            `m_duration` varchar(10),
+            `m_director` varchar(50),
+            `m_actors` varchar(1000),
+            `m_placard` varchar(200),
+            `m_screenshot` varchar(200),
+            `m_ftpurl` varchar(200),
+            `m_dytt8_url` varchar(200)
         );
     '''
 
     InsertSql = '''
-        Insert into lastest_moive(m_type, m_trans_name, m_name, m_decade, m_conutry, m_level, m_language, m_subtitles, m_publish, m_IMDB_socre, 
+        Insert into lastest_movie(m_type, m_trans_name, m_name, m_decade, m_conutry, m_level, m_language, m_subtitles, m_publish, m_IMDB_socre, 
         m_douban_score, m_format, m_resolution, m_size, m_duration, m_director, m_actors, m_placard, m_screenshot, m_ftpurl,
         m_dytt8_url)
         values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
