@@ -3,8 +3,6 @@
 
 
 import sqlite3
-import MySQLdb
-
 
 from dytt8.dytt8Moive import dytt_Lastest
 from model.TaskQueue import TaskQueue
@@ -66,11 +64,10 @@ def startSpider():
 
 def insertData():
     DBName = 'dytt.db'
-    db = MySQLdb.connect("127.0.0.1", "root", "123456", "movie", charset='utf8' )
-    # db = sqlite3.connect('./' + DBName, 10)
+    db = sqlite3.connect('./' + DBName, 10)
     conn = db.cursor()
 
-    SelectSql = 'Select count(*) from lastest_moive'
+    SelectSql = 'Select * from sqlite_master where type = "table" and name="lastest_moive";'
     CreateTableSql = '''
         Create Table lastest_moive (
             'm_id' INTEGER PRIMARY KEY,
@@ -126,5 +123,4 @@ def insertData():
 
 
 if __name__ == '__main__':
-    # startSpider()
-    insertData()
+    startSpider()
