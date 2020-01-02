@@ -64,13 +64,26 @@ def startSpider():
     insertData()
 
 
+def table_exists(con,table_name):        #这个函数用来判断表是否存在
+    sql = "show tables;"
+    con.execute(sql)
+    tables = [con.fetchall()]
+    table_list = re.findall('(\'.*?\')',str(tables))
+    table_list = [re.sub("'",'',each) for each in table_list]
+    if table_name in table_list:
+        return 1        #存在返回1
+    else:
+        return 0
+
+
+
 def insertData():
     DBName = 'dytt.db'
     db = MySQLdb.connect("127.0.0.1", "root", "123456", "movie", charset='utf8' )
     # db = sqlite3.connect('./' + DBName, 10)
     conn = db.cursor()
 
-    SelectSql = 'Select count(*) from lastest_moive'
+    tableName = 'lastest_moive'
     CreateTableSql = '''
         Create Table lastest_moive (
             'm_id' INTEGER PRIMARY KEY,
@@ -105,7 +118,7 @@ def insertData():
         values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
     '''
 
-    if not conn.execute(SelectSql).fetchone():
+    if not table_exists(conn,tableName):
         conn.execute(CreateTableSql)
         db.commit()
         print('====  创建表成功  ====')
