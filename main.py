@@ -63,8 +63,8 @@ def startSpider():
 
     insertData()
 
-
-def table_exists(con,table_name):        #这个函数用来判断表是否存在
+#这个函数用来判断表是否存在
+def table_exists(con,table_name):
     sql = "show tables;"
     con.execute(sql)
     tables = [con.fetchall()]
