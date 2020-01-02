@@ -71,7 +71,7 @@ def table_exists(con,table_name):
     table_list = re.findall('(\'.*?\')',str(tables))
     table_list = [re.sub("'",'',each) for each in table_list]
     if table_name in table_list:
-        return 1        #存在返回1
+        return 1
     else:
         return 0
 
