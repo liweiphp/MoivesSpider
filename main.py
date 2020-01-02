@@ -87,7 +87,7 @@ def insertData():
     tableName = 'lastest_moive'
     CreateTableSql = '''
         Create Table lastest_moive (
-            'm_id' INTEGER PRIMARY KEY,
+            'm_id' unsigned int auto_increment PRIMARY KEY,
             'm_type' varchar(100),
             'm_trans_name' varchar(200),
             'm_name' varchar(100),
