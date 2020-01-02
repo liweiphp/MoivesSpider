@@ -140,5 +140,5 @@ def insertData():
 
 
 if __name__ == '__main__':
-    # startSpider()
-    insertData()
+    startSpider()
+    # insertData()
