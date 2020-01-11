@@ -166,7 +166,7 @@ class dytt_Lastest(object):
 
         # 类型
         if content[0][0:1] != '◎':
-            contentDir['type'] = '[' + content[0]
+            contentDir['type'] = content[0]
         actor = ''
 
         for each in content:
